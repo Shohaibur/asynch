@@ -1,16 +1,18 @@
 var tasks = [
-  {task: "Homework", Time : "2000"},
-  {task: "Coding", Time : "3000"},
-  {task: "Cooking", Time : "4000"},
-  {task: "Workout", Time : "5000"},
-  {task: "Reading books" , Time : "2000"}
+  {task: "Homework"},
+  {task: "Coding"},
+  {task: "Cooking"},
+  {task: "Workout"},
+  {task: "Reading books"}
 ]
 
-var task_name = prompt("Please enter the option number for the task:\n0. Homework (Time: 2 sec)\n1. Coding (Time: 3000)\n2. Cooking (Time: 4000)\n3. Workout (Time: 5000)\n4. Reading books (Time: 2000)");
+var task_name = prompt("Please enter the option number for the task:\n1. Homework \n2. Coding \n3. Cooking \n4. Workout \n5. Reading books");
+var take_time = prompt("Please enter time (seconds)")
 
+task_name = task_name-1;
+take_time = take_time * 1000;
 
-
-var task = (task_name,call_result)=>{
+var task = (task_name ,call_result)=>{
   setTimeout(()=>{
     console.log(`${tasks[task_name].task} Task Assigned, wait for completion`),
   call_result()
@@ -20,10 +22,10 @@ var task = (task_name,call_result)=>{
 
 
 var result =()=>{
-  setTimeout(()=>{console.log(`Task - ${tasks[task_name].task} selected `)
-  setTimeout(()=>{console.log(`${tasks[task_name].task} took ${tasks[task_name].Time}  milliseconds to complete`)
-},tasks[task_name].Time);
-},0);
+  setTimeout(()=>{console.log(`Task - ${tasks[task_name].task} performing `)
+  setTimeout(()=>{console.log(`${tasks[task_name].task} took ${take_time/1000} seconds to complete`)
+},take_time);
+},1000);
 
 };
 task(task_name,result);
