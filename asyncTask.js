@@ -10,18 +10,15 @@ var prompt_task = prompt("Please enter the option number for the task:\n0. Homew
 
 
 var task = (prompt_task,call_result)=>{
-  setTimeout(()=>{
-    console.log(`${tasks[prompt_task].task} Task Assigned, wait for completion`),
-  call_result()
-  }, 1000 );  
-};
-
+    console.log(`${(tasks[prompt_task]).task} task selected`), call_result();
+  }
 
 var result =()=>{
-  setTimeout(()=>{console.log(`Task - ${tasks[prompt_task].task} selected `)
-  setTimeout(()=>{console.log(`${tasks[prompt_task].task} took ${tasks[prompt_task].Time}  milliseconds to complete`)
-},tasks[prompt_task].Time);
-},0);
-
+  setTimeout(()=>{
+    console.log(`Task - ${tasks[prompt_task].task} Task Assigned, wait for completion `)
+    setTimeout(()=>{
+      console.log(`${tasks[prompt_task].task} took ${tasks[prompt_task].Time}  milliseconds to complete`)
+    },tasks[prompt_task].Time);
+  },1000);
 };
 task(prompt_task,result);
