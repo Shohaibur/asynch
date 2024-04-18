@@ -8,17 +8,15 @@ var tasks = [
 
 var prompt_task = prompt("Please enter the option number for the task:\n0. Homework (Time: 2 sec)\n1. Coding (Time: 3000)\n2. Cooking (Time: 4000)\n3. Workout (Time: 5000)\n4. Reading books (Time: 2000)");
 
-
 var task = (prompt_task,call_result)=>{
-    console.log(`${(tasks[prompt_task]).task} task selected`), call_result();
+  console.log(`${(tasks[prompt_task]).task} task selected`), call_result();
   }
-
-var result =()=>{
-  setTimeout(()=>{
-    console.log(`Task - ${tasks[prompt_task].task} Task Assigned, wait for completion `)
-    setTimeout(()=>{
-      console.log(`${tasks[prompt_task].task} took ${tasks[prompt_task].Time}  milliseconds to complete`)
-    },tasks[prompt_task].Time);
-  },1000);
-};
+var result =()=> { 
+  setTimeout(()=> {
+    console.log(`Task - ${tasks[prompt_task].task} Task Assigned, wait for completion `) 
+    setTimeout(()=> { 
+      console.log(`${tasks[prompt_task].task} took ${tasks[prompt_task].Time}  milliseconds to complete`) 
+    }, tasks[prompt_task].Time);
+  },1000); 
+}; 
 task(prompt_task,result);
