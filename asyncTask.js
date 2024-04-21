@@ -1,8 +1,8 @@
 var task_name = prompt("Please enter task");
-var take_time = prompt("Please enter time (seconds)")
+var prompt_time = prompt("Please enter time (seconds)")
 
 
-take_time = take_time * 1000;
+prompt_time = prompt_time * 1000;
 
 console.log("Initiating please wait 1 second");
 
@@ -15,8 +15,8 @@ var task = (task_name ,call_result)=>{
 
 var result =()=>{
   setTimeout(()=>{console.log(`Task - ${task_name} performing`)
-  setTimeout(()=>{console.log(`${task_name} took ${take_time/1000} seconds to complete`)
-},take_time);
+  setTimeout(()=>{console.log(`${task_name} took ${prompt_time/1000} seconds to complete`)
+},prompt_time);
 },1000);
 
 };
