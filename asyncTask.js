@@ -34,3 +34,6 @@ asynchTask
   .catch((err)=>{
     console.log(err);
   })
+  .finally(() => {
+    console.log("Task scheduling program ended."); // Finalization logic
+  });
