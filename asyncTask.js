@@ -1,31 +1,36 @@
-var task_name = prompt("Please enter task");
-var prompt_time = prompt("Please enter time (seconds)")
+var task = prompt("Input task name:");
+var duration = prompt("Input duration:");
 
+var asynchTask = new Promise((resolve,reject)=>{
+  if (isNaN(task) == false || isNaN(duration) == true) {
+    console.log ("Invalid input failed to perform task");
+    reject();
+  } 
+  else {
+    console.log("Initiating task please wait (1 second) ");
+    
+      var dotask = (task ,call_result)=>{
+        setTimeout(()=>{
+          console.log(`${task} Task Assigned, wait for completion`),
+        call_result()
+        }, 1000 );  
+      };
+      var result =()=>{
+        setTimeout(()=>{console.log(`Task - ${task} performing`)
+        setTimeout(()=>{console.log(`${task} took ${duration} seconds to complete`)
+      },duration*1000);
+    },1000);
+    
+      };
+      dotask(task,result);
+    }
+  }
+)
 
-
-
-if (task_name !='NaN' || prompt_time == 'NaN ') {
-  console.log("Invalid Input");
-} else {
-
-  prompt_time = prompt_time * 1000;
-
-console.log("Initiating please wait 1 second");
-
-  var task = (task_name ,call_result)=>{
-    setTimeout(()=>{
-      console.log(`${task_name} Task Assigned, wait for completion`),
-    call_result()
-    }, 1000 );  
-  };
-  
-  var result =()=>{
-    setTimeout(()=>{console.log(`Task - ${task_name} performing`)
-    setTimeout(()=>{console.log(`${task_name} took ${prompt_time/1000} seconds to complete`)
-  },prompt_time);
-  },1000);
-  
-  };
-  task(task_name,result);
-}
-
+asynchTask
+  .then((res)=>{
+    console.log(res);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
